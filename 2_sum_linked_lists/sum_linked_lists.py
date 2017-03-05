@@ -19,8 +19,9 @@ class LinkedList(object):
 
     @staticmethod
     def add_two_linked_lists(l1, l2):
-        output_list = LinkedList()
-
+        n1 = LinkedList.linked_list_to_reversed_num(l1)
+        n2 = LinkedList.linked_list_to_reversed_num(l2)
+        return LinkedList.linked_list_from_str(str(n1 + n2)[::-1])
 
     @staticmethod
     def linked_list_from_num(num):
@@ -29,6 +30,18 @@ class LinkedList(object):
         for num in num_str:
             ll.append(int(num))
         return ll
+
+    @staticmethod
+    def linked_list_from_str(input_str):
+        ll = LinkedList()
+        for char in input_str:
+            ll.append(int(char))
+        return ll
+
+    @staticmethod
+    def linked_list_to_reversed_num(linked_list):
+        list_str = LinkedList.linked_list_to_str(linked_list)
+        return int(list_str[::-1])
 
     @staticmethod
     def linked_list_to_str(linked_list):
@@ -40,7 +53,13 @@ class LinkedList(object):
         return output_str
 
 
-
 class Solution(object):
-    def addTwoNumbers(self, l1, l2):
+    def __init__(self):
         pass
+
+    @staticmethod
+    def addTwoNumbers(l1, l2):
+        ll_1, ll_2 = LinkedList(), LinkedList()
+        ll_1.root = l1
+        ll_2.root = l2
+        return LinkedList.add_two_linked_lists(ll_1, ll_2).root
