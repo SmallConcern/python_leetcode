@@ -1,0 +1,3 @@
+Submitted, Accepted.
+My solution was slow, ~n^2. Passed 129/130 tests, couldn't pass massive input size. However, used no extra space.
+Submitted leetcode heap solution which used n^2 extra space but was linear.
