@@ -1,36 +1,16 @@
-import time
-
-def timeit(method):
-
-    def timed(*args, **kw):
-        ts = time.time()
-        result = method(*args, **kw)
-        te = time.time()
-
-        print '%r (%r, %r) %2.2f sec' % \
-              (method.__name__, args, kw, te-ts)
-        return result
-
-    return timed
-
-def _gen_memo_key(open, closed):
-    return "{}-{}".format(open, closed)
-
-def _generate_parenthesis(substring, open, closed, memo):
+def _generate_parenthesis(substring, open, closed):
     if not open and not closed:
         return []
     elif not open:
         return [substring + ')' * closed]
     options = []
-    options += _generate_parenthesis(substring + '(', open - 1, closed, memo)
+    options += _generate_parenthesis(substring + '(', open - 1, closed)
     if open < closed:
-        options += _generate_parenthesis(substring + ')', open, closed-1, memo)
+        options += _generate_parenthesis(substring + ')', open, closed-1)
     return options
 
-@timeit
 def generate_parenthesis(n):
-    memo = {}
-    return _generate_parenthesis('', n, n, memo)
+    return _generate_parenthesis('', n, n)
 
 class Solution(object):
     def generateParenthesis(self, n):
