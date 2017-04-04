@@ -17,11 +17,11 @@ def _balloon_burst_max_r(balloon_arr, value):
 
 def balloon_burst_max_r(balloon_arr):
     return _balloon_burst_max_r(balloon_arr, 0)
-
-def balloon_burst_max_dp(balloon_arr):
-    matrix = []
-    for x in xrange(len(balloon_arr)): matrix.append([0] * len(balloon_arr))
-    print matrix
+#
+# def balloon_burst_max_dp(balloon_arr):
+#     matrix = []
+#     for x in xrange(len(balloon_arr)): matrix.append([0] * len(balloon_arr))
+#     print matrix
 
 
 class Solution(object):
@@ -31,9 +31,9 @@ class Solution(object):
 class TestBalloonBurstMax(object):
     def test_balloon_burst_max_r(self):
         assert balloon_burst_max_r([3,1,5,8]) == 167
-
-    def test_balloon_burst_max_dp(self):
-        assert balloon_burst_max_dp([3,1,5,8]) == 167
-        print balloon_burst_max_dp([35, 16, 83, 87, 84, 59, 48, 41, 20, 54])
+    #
+    # def test_balloon_burst_max_dp(self):
+    #     assert balloon_burst_max_dp([3,1,5,8]) == 167
+    #     print balloon_burst_max_dp([35, 16, 83, 87, 84, 59, 48, 41, 20, 54])
         # import random
         # print balloon_burst_max_r([random.randint(0,100) for _ in xrange(500)])

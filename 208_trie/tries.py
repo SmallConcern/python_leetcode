@@ -20,7 +20,6 @@ class Trie(object):
                 node = new_node
         node.terminator = True
 
-
     def search(self, word, complete_word=True):
         node = self.root
         for char in list(word):

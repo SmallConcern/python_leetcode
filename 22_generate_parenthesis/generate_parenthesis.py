@@ -28,4 +28,4 @@ class TestGenParenthesis(object):
                                           "()(())",
                                           "()()()"
                                           ]
-        generate_parenthesis(14)
+        print generate_parenthesis(14)

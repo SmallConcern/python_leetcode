@@ -22,3 +22,8 @@ class Solution(object):
     def letterCombinations(self, digits):
         lc = LetterCombos()
         return lc.get_letter_combos(digits)
+
+class TestLetterCombos(object):
+    def test_letter_combos(self):
+        lc = LetterCombos()
+        print lc.get_letter_combos('234')

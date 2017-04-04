@@ -10,9 +10,25 @@ class Solution(object):
 
         return m
 
+def practice(arr):
+    dp = [0] * (len(arr)+1)
+    m = 0
+    dp[0] = arr[0]
+
+    for x in range(1, len(arr)):
+        dp[x] = max(arr[x] + dp[x-1], arr[x])
+        m = max(m, dp[x])
+
+    return m
+
+
 
 class TestMaximumSubarray(object):
     def test_maximum_subarray(self):
         s = Solution()
         assert s.maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]) == 6
         assert s.maxSubArray([-2, 1, -3, 4, -1, 2, 1, -7, 100]) == 100
+        assert s.maxSubArray([100, 0, 0, 0, 0, -1, -1, 3]) == 101
+        assert practice([-2, 1, -3, 4, -1, 2, 1, -5, 4]) == 6
+        assert practice([-2, 1, -3, 4, -1, 2, 1, -7, 100]) == 100
+        assert practice([100, 0, 0, 0, 0, -1, -1, 3]) == 101
